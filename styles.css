@@ -1,0 +1,123 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+  background-color: bisque;
+  color: coral;
+}
+
+header nav{
+  background-color: rgb(64, 41, 13);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+header nav h1{
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+header nav form{
+  display: flex;
+  justify-content: center;
+}
+
+form-input[type="text"]{
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+form-input[type="text"],button[type="submit"]{
+  border: none;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+form button[type="submit"]{
+  background-color: crimson;
+  color: antiquewhite;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form button[type="submit"]:hover, .recipe button:hover {
+  background-color: darkgray;
+}
+
+.recipe-container{
+  text-align: center;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 40px;
+  width: 80%;
+  padding: 20%;
+  place-items: center;
+}
+
+.recipe{
+  display: flex;
+  background-color: rgb(50, 110, 161);
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgb(136, 121, 102);
+  cursor: pointer;
+  max-width: 350px;
+}
+
+.recipe img{
+  height: 300px;
+}
+
+.recipe h3 {
+  font-size: medium;
+}
+
+.recipe p{
+  font-size: medium;
+  color: rgb(108, 46, 25);
+}
+
+.recipe span{
+  font-weight: 700px;
+}
+
+.recipe button{
+  font-size: small;
+  font-weight: 700;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 18px auto;
+  background-color:rgb(79, 122, 79);
+  color: rgb(169, 140, 140);
+}
+
+.recipe-detail{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(124, 86, 28);
+}
+
+@media screen and (max-width:600px){
+  header nav{
+    flex-direction: column;
+  }
+  header nav form{
+    width: 80%;
+    margin-top: 20px;
+  }  
+}
