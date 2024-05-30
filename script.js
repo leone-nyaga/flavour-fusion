@@ -71,35 +71,31 @@ recipeCloseBtn.addEventListener('click', () => {
 // Fetch random recipes for featured section
 const fetchRandomRecipes = async () => {
   featuredContainer.innerHTML = "<h2>Loading featured recipes...</h2>";
-  const data = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
-  const response = await data.json();
+  const promises = Array.from({ length: 6 }, () => fetch(`https://www.themealdb.com/api/json/v1/1/random.php`).then(res => res.json()));
+  const responses = await Promise.all(promises);
 
   featuredContainer.innerHTML = "";
-  if (response.meals) {
-    for (let i = 0; i < 6; i++) {
-      const meal = response.meals[0]; // Random API returns only one meal
-      const recipeDiv = document.createElement('div');
-      recipeDiv.classList.add('featured-recipe');
-      recipeDiv.innerHTML = `
-        <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-        <h3>${meal.strMeal}</h3>
-        <p><span>${meal.strArea}</span> Dish</p>
-        <p>It belongs to <span>${meal.strCategory}</span></p>
-      `;
+  responses.forEach(response => {
+    const meal = response.meals[0];
+    const recipeDiv = document.createElement('div');
+    recipeDiv.classList.add('featured-recipe');
+    recipeDiv.innerHTML = `
+      <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+      <h3>${meal.strMeal}</h3>
+      <p><span>${meal.strArea}</span> Dish</p>
+      <p>It belongs to <span>${meal.strCategory}</span></p>
+    `;
 
-      const button = document.createElement('button');
-      button.textContent = "View Recipe";
-      recipeDiv.appendChild(button);
+    const button = document.createElement('button');
+    button.textContent = "View Recipe";
+    recipeDiv.appendChild(button);
 
-      button.addEventListener('click', () => {
-        openRecipePopup(meal);
-      });
+    button.addEventListener('click', () => {
+      openRecipePopup(meal);
+    });
 
-      featuredContainer.appendChild(recipeDiv);
-    }
-  } else {
-    featuredContainer.innerHTML = "<h2>No featured recipes found.</h2>";
-  }
+    featuredContainer.appendChild(recipeDiv);
+  });
 }
 
 // Search button event listener
