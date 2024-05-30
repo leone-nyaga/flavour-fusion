@@ -3,6 +3,7 @@ const searchBtn = document.querySelector('.searchBtn');
 const recipeContainer = document.querySelector('.recipe-container');
 const recipeDetailContent = document.querySelector('.recipe-details-content');
 const recipeCloseBtn = document.querySelector('.recipe-close-btn');
+const featuredContainer = document.querySelector('.featured-container');
 
 // Fetch recipes from API
 const fetchRecipes = async (query) => {
@@ -67,6 +68,40 @@ recipeCloseBtn.addEventListener('click', () => {
   recipeDetailContent.parentElement.style.display = "none";
 });
 
+// Fetch random recipes for featured section
+const fetchRandomRecipes = async () => {
+  featuredContainer.innerHTML = "<h2>Loading featured recipes...</h2>";
+  const data = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
+  const response = await data.json();
+
+  featuredContainer.innerHTML = "";
+  if (response.meals) {
+    for (let i = 0; i < 6; i++) {
+      const meal = response.meals[0]; // Random API returns only one meal
+      const recipeDiv = document.createElement('div');
+      recipeDiv.classList.add('featured-recipe');
+      recipeDiv.innerHTML = `
+        <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+        <h3>${meal.strMeal}</h3>
+        <p><span>${meal.strArea}</span> Dish</p>
+        <p>It belongs to <span>${meal.strCategory}</span></p>
+      `;
+
+      const button = document.createElement('button');
+      button.textContent = "View Recipe";
+      recipeDiv.appendChild(button);
+
+      button.addEventListener('click', () => {
+        openRecipePopup(meal);
+      });
+
+      featuredContainer.appendChild(recipeDiv);
+    }
+  } else {
+    featuredContainer.innerHTML = "<h2>No featured recipes found.</h2>";
+  }
+}
+
 // Search button event listener
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -77,3 +112,6 @@ searchBtn.addEventListener('click', (e) => {
     alert("Please enter a search term.");
   }
 });
+
+// Initialize featured recipes
+fetchRandomRecipes();

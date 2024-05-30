@@ -55,6 +55,39 @@ form button[type="submit"]:hover, .recipe button:hover {
   background-color: darkgray;
 }
 
+.featured-recipes {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.featured-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.featured-recipe {
+  background-color: rgb(50, 110, 161);
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgb(136, 121, 102);
+  cursor: pointer;
+  max-width: 200px;
+  text-align: center;
+  padding: 10px;
+}
+
+.featured-recipe img {
+  height: 150px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.featured-recipe h3 {
+  font-size: small;
+}
+
 .recipe-container {
   text-align: center;
   margin-top: 20px;
