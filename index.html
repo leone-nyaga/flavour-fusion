@@ -10,31 +10,40 @@
   <header>
     <nav>
       <h1>Flavour Fusion</h1>
-      <form>
+      <form id="header-search-form">
         <input type="text" placeholder="search for a recipe..." class="searchBox">
         <button type="submit" class="searchBtn">Search</button>
       </form>
     </nav>
   </header>
+
   <main>
+    <section class="hero">
+      <h2>Welcome to Flavour Fusion</h2>
+      <p>Your ultimate destination for discovering delightful recipes from around the world.</p>
+    </section>
+
     <section class="featured-recipes">
       <h2>Featured Recipes</h2>
       <div class="featured-container">
         <!-- Featured recipes will be injected by JavaScript -->
       </div>
     </section>
-    <section>
-      <div class="recipe-container">
-        <h2>Search for your favorite recipe</h2>
-      </div>
-      <div class="recipe-details">
-        <div class="recipe-details-content">
-          <!-- Content will be injected by JavaScript -->
-        </div>
-        <button type="button" class="recipe-close-btn">Close</button>
-      </div>
+
+    <section class="main-search">
+      <h2>Search for Your Favorite Recipes</h2>
+      <form id="main-search-form">
+        <input type="text" placeholder="search for a recipe..." class="searchBox">
+        <button type="submit" class="searchBtn">Search</button>
+      </form>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2024 Flavour Fusion. All rights reserved.</p>
+    <p>Contact us: info@flavourfusion.com</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

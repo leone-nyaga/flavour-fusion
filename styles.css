@@ -189,6 +189,62 @@ form button[type="submit"]:hover, .recipe button:hover {
   right: 10px;
 }
 
+.main-search {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #fff8e1;
+}
+
+.main-search h2 {
+  margin-bottom: 20px;
+}
+
+.main-search form {
+  display: flex;
+  justify-content: center;
+}
+
+.main-search input[type="text"], .main-search button[type="submit"] {
+  border: none;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.main-search button[type="submit"] {
+  background-color: crimson;
+  color: antiquewhite;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.main-search button[type="submit"]:hover {
+  background-color: darkgray;
+}
+
+.search-results {
+  padding: 20px;
+  background-color: #fff8e1;
+}
+
+.search-results h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recipe-container {
+  text-align: center;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 40px;
+  width: 80%;
+  padding: 20%;
+  place-items: center;
+}
+
+
 @media screen and (max-width: 600px) {
   header nav {
     flex-direction: column;
