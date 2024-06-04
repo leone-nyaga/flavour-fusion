@@ -244,6 +244,19 @@ form button[type="submit"]:hover, .recipe button:hover {
   place-items: center;
 }
 
+/* ... existing styles ... */
+
+header nav h1 a {
+  text-decoration: none;
+  color: antiquewhite;
+}
+
+header nav h1 a:hover {
+  color: lightgray;
+}
+
+/* ... existing styles ... */
+
 
 @media screen and (max-width: 600px) {
   header nav {
