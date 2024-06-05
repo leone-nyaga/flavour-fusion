@@ -90,13 +90,12 @@ form button[type="submit"]:hover, .recipe button:hover {
 
 .recipe-container {
   text-align: center;
-  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 40px;
+  grid-gap: 20px;
   width: 80%;
-  padding: 20%;
-  place-items: center;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 .recipe {
@@ -233,19 +232,6 @@ form button[type="submit"]:hover, .recipe button:hover {
   margin-bottom: 20px;
 }
 
-.recipe-container {
-  text-align: center;
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 40px;
-  width: 80%;
-  padding: 20%;
-  place-items: center;
-}
-
-/* ... existing styles ... */
-
 header nav h1 a {
   text-decoration: none;
   color: antiquewhite;
@@ -254,9 +240,6 @@ header nav h1 a {
 header nav h1 a:hover {
   color: lightgray;
 }
-
-/* ... existing styles ... */
-
 
 @media screen and (max-width: 600px) {
   header nav {
